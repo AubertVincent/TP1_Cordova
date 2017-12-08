@@ -44,7 +44,7 @@ const fakeResults: Result[] = [{
     image: 'http://www.nuntisunya.com/wp-content/uploads/2015/12/homme-blanc-face-200x200.jpg',
     title: 'L\'hiver ?'
   }, {
-    author: 'Amina BOUCHERIMA',
+    author: 'Amina BOUCHEfRIMA',
     date: 2015,
     image: 'https://images.freeimages.com/images/premium/large-thumbs/4508/45086422-page-not-found-error-404-polar-bear-concept.jpg',
     title: '404 NOT FOUND'
