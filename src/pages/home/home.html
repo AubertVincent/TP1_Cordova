@@ -10,13 +10,16 @@
 <ion-content padding>
 <ion-list>
     <ion-item>
-      <button ion-item *ngFor="let item of films">
+      <div *ngIf="!show">Aucun résultat</div>
+      <div *ngIf= "show">
+        <button ion-item *ngFor="let item of films" [navPush]="pushPage" [navParams]="item">
       <ion-thumbnail item-start>
       <img [src]="item.image">
     </ion-thumbnail>
     <h2>{{item.title}}</h2>
     <p>{{item.author}} • {{item.date}}</p>
     </button>
+    </div>
   </ion-item>
 </ion-list>
 </ion-content>

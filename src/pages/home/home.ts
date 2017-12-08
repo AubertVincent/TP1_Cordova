@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { NULL_EXPR } from '@angular/compiler/src/output/output_ast';
+import { DetailsPage } from '../details/details';
 
 export interface Result {
   author: string;
@@ -56,9 +58,13 @@ const fakeResults: Result[] = [{
 })
 export class HomePage {
 
+  show: boolean = false;
+  pushPage: any;
+
   films: Result[];
   constructor(public navCtrl: NavController) {
     this.films = fakeResults;
+    this.pushPage = DetailsPage;
   }
 
   initializeFilms() {
@@ -68,8 +74,15 @@ export class HomePage {
   getFilms(ev: any) {
 
     this.initializeFilms();
+
     // set val to the value of the searchbar
     let val = ev.target.value;
+
+    if (val == '') {
+      this.show = false;
+    } else {
+      this.show = true;
+    }
 
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
