@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {NavParams } from 'ionic-angular';
 import { Result } from '../home/home';
 
 /**
@@ -17,12 +17,7 @@ export class DetailsPage {
 
   item: Result;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(navParams: NavParams) {
     this.item = navParams.data;
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailsPage');
-  }
-
 }

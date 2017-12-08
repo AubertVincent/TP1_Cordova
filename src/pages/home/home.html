@@ -8,18 +8,14 @@
 </ion-header>
 
 <ion-content padding>
-<ion-list>
-    <ion-item>
-      <div *ngIf="!show">Aucun résultat</div>
-      <div *ngIf= "show">
-        <button ion-item *ngFor="let item of films" [navPush]="pushPage" [navParams]="item">
+  <ion-list>
+    <ion-item *ngIf="!(films | async)?.length">Aucun résultat</ion-item>
+    <button ion-item *ngFor="let item of films | async" [navPush]="pushPage" [navParams]="item">
       <ion-thumbnail item-start>
-      <img [src]="item.image">
-    </ion-thumbnail>
-    <h2>{{item.title}}</h2>
-    <p>{{item.author}} • {{item.date}}</p>
+        <img [src]="'https://image.tmdb.org/t/p/w640/'+item.poster_path">
+      </ion-thumbnail>
+      <h2>{{item.title}}</h2>
+      <p>{{item.backdrops_path}} • {{item.release_date | date: 'longDate'}}</p>
     </button>
-    </div>
-  </ion-item>
-</ion-list>
+  </ion-list>
 </ion-content>

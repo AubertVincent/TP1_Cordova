@@ -12,13 +12,14 @@
 
 </ion-header>
 
-s
+
 <ion-content padding>
   <div style="text-align:center;">
-  <img [src]="item.image">
-  <br>
+  <img [src]="'https://image.tmdb.org/t/p/w640/'+item.poster_path"><br>
   <h2>{{item.title}}</h2>
   <br>
-  <p>{{item.author}} • {{item.date}}</p>
+  <p>{{item.release_date}} </p>
+  • <br>
+  <p>{{item.overview}}</p>
   </div>
 </ion-content>
