@@ -4,11 +4,15 @@ import { NULL_EXPR } from '@angular/compiler/src/output/output_ast';
 import { DetailsPage } from '../details/details';
 
 export interface Result {
-  author: string;
-  date: number;
-  image: string;
   title: string;
+  overview:string;
+  poster_path: string;
+  backdrops_path: string;
+  //id: integer;  //?? integer n'est pas accepté
+  release_date: string;
 }
+
+// https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
 
 const fakeResults: Result[] = [{
   author: 'Vincent AUBERT',
