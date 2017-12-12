@@ -17,9 +17,11 @@
   <div style="text-align:center;">
   <img [src]="'https://image.tmdb.org/t/p/w640/'+item.poster_path"><br>
   <h2>{{item.title}}</h2>
-  <br>
-  <p>{{item.release_date}} </p>
-  • <br>
+
+  <p>{{item.release_date | date: 'longDate'}} </p>
+  •
+  <p>{{item.vote_average}}/10</p>
+   •
   <p>{{item.overview}}</p>
   </div>
 </ion-content>

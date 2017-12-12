@@ -15,7 +15,8 @@
         <img [src]="'https://image.tmdb.org/t/p/w640/'+item.poster_path">
       </ion-thumbnail>
       <h2>{{item.title}}</h2>
-      <p>{{item.backdrops_path}} • {{item.release_date | date: 'longDate'}}</p>
+      <h3>{{item.backdrops_path}} • {{item.release_date | date: 'longDate'}}</h3>
+
     </button>
   </ion-list>
 </ion-content>
