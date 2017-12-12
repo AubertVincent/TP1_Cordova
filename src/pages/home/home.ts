@@ -18,7 +18,8 @@ export interface Result {
   //id: integer;  //?? integer n'est pas accepté
   release_date: string;
   vote_average:number;
-
+  original_title: string;
+  original_language: string;
 }
 
 
@@ -31,8 +32,9 @@ export class HomePage {
   pushPage: any = DetailsPage;
 
   films: Observable<Result[]> = Observable.of([]);
+  shakeSubscription: Subscription;
 
-  constructor(private http_client: HttpClient, private navCtrl: NavController, private alertCtrl: AlertController, private shake: Shake, private shakeSubscription: Subscription) {
+  constructor(private http_client: HttpClient, private navCtrl: NavController, private alertCtrl: AlertController, private shake: Shake) {
   }
 
 
@@ -46,8 +48,8 @@ export class HomePage {
     let i = movies[Math.floor(Math.random() * movies.length)];
 
     let confirm = this.alertCtrl.create({
-          title: 'item.title',
-          message: 'item.overview',
+          title: i.title,
+          message: i.overview,
           buttons: [
             {
               text: 'Cancel'
@@ -60,25 +62,21 @@ export class HomePage {
               }
             }
           ]
-        });
-        confirm.present();
-      }
- private ionViewDidEnter():void{
+    });
+    confirm.present();
+  }
+
+ ionViewDidEnter():void{
 
    this.shakeSubscription = this.shake.startWatch().switchMap(() => this.discoverMovies()).subscribe(movies => this.showRandomMovieAlert(movies));
 
  }
 
- private ionViewWillLeave():void{
+ ionViewWillLeave():void{
 
    this.shakeSubscription.unsubscribe();
 
  }
-
-
-
-
-
 
   getFilms(ev: any) : void {
 

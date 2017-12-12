@@ -16,12 +16,13 @@
 <ion-content padding>
   <div style="text-align:center;">
   <img [src]="'https://image.tmdb.org/t/p/w640/'+item.poster_path"><br>
-  <h2>{{item.title}}</h2>
-
+  <h1>{{item.title}}</h1>
+  <h4>({{item.original_title}}) • {{item.original_language}}</h4>
+  •
   <p>{{item.release_date | date: 'longDate'}} </p>
   •
   <p>{{item.vote_average}}/10</p>
-   •
+  •
   <p>{{item.overview}}</p>
   </div>
 </ion-content>
