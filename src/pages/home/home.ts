@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { DetailsPage } from '../details/details';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { API_key } from '../../app/tmdb';
 import 'rxjs/add/operator/switchMap';
-import { AlertController } from 'ionic-angular';
+import { AlertController, NavController, Platform } from 'ionic-angular';
 import { Shake } from '@ionic-native/shake';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -34,7 +33,12 @@ export class HomePage {
   films: Observable<Result[]> = Observable.of([]);
   shakeSubscription: Subscription;
 
-  constructor(private http_client: HttpClient, private navCtrl: NavController, private alertCtrl: AlertController, private shake: Shake) {
+  constructor(
+    private http_client: HttpClient,
+    private platform: Platform,
+    private navCtrl: NavController,
+    private alertCtrl: AlertController,
+    private shake: Shake) {
   }
 
 
@@ -57,7 +61,7 @@ export class HomePage {
             {
               text: 'Details',
               handler: () => {
-                this.navCtrl.push(DetailsPage);
+                this.navCtrl.push(DetailsPage,i);
                 console.log('Agree clicked');
               }
             }
@@ -68,8 +72,12 @@ export class HomePage {
 
  ionViewDidEnter():void{
 
-   this.shakeSubscription = this.shake.startWatch().switchMap(() => this.discoverMovies()).subscribe(movies => this.showRandomMovieAlert(movies));
-
+  // this.shakeSubscription = this.shake.startWatch().switchMap(() => this.discoverMovies()).subscribe(movies => this.showRandomMovieAlert(movies));
+   //this.shakeSub = Observable.fromPromise(this.platform.ready()).switchMap(() => this.shake.startWatch();
+   this.shakeSubscription = Observable.fromPromise(this.platform.ready())
+       .switchMap(() => this.shake.startWatch())
+       .switchMap(() => this.discoverMovies())
+       .subscribe(movies => this.showRandomMovieAlert(movies));
  }
 
  ionViewWillLeave():void{
