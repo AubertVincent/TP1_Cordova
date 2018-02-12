@@ -6,13 +6,27 @@ page-details {
 h4 {
   color: DimGray;
 }
-  // p{
-  //   color: #46010D;
-  // }
-  .overview{
-    color : DimGray;
+  .title_movie{
+    border: 10px solid transparent;
+    padding: 15px;
+    border-image: url(http://www.uvassociates.in/sites/default/files/images/borders/Shiny-metallic-elegant-embossed-frame-rectangular-powerpoint-border.png) 30 stretch;
+    border-image-width: 7px;
+    box-shadow: 5px 10px black;
+     text-shadow: 5px 5px black;
   }
+
+  .overview{
+    color : #FDF1B8;
+    border: 10px solid transparent;
+    padding: 15px;
+    border-image: url(http://res.freestockphotos.biz/pictures/4/4627-illustration-of-a-blank-frame-border-pv.png) 30 stretch;
+    font: italic 14px/18px "Times New Roman", serif;
+    text-align: justify;
+  }
+
+
    .background2 {
-     background-color: #480410;
+     background-color: #3F181E;
+     background-image: url("https://get.wallhere.com/photo/simple-background-red-texture-circle-lens-flare-light-color-shape-line-darkness-screenshot-computer-wallpaper-109473.jpg");
      color : #F5F5DC;
     }

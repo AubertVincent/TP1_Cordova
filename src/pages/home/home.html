@@ -12,11 +12,11 @@
   <ion-list>
     <ion-item *ngIf="!(films | async)?.length">Aucun résultat</ion-item>
     <button ion-item *ngFor="let item of films | async" [navPush]="pushPage" [navParams]="item">
-      <ion-thumbnail item-start>
+      <ion-thumbnail item-start >
         <img [src]="'https://image.tmdb.org/t/p/w92/'+item.poster_path">
       </ion-thumbnail>
       <h2>{{item.title}}</h2>
-      <h3>{{item.backdrops_path}} • {{item.release_date | date: 'longDate'}}</h3>
+      <h3>{{item.release_date | date: 'longDate'}}</h3>
 
     </button>
   </ion-list>

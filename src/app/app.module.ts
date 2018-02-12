@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import { DetailsPage } from '../pages/details/details';
 import {HttpClientModule} from '@angular/common/http';
 import { Shake } from '@ionic-native/shake';
+import { TestProvider } from '../providers/test/test';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { Shake } from '@ionic-native/shake';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Shake
+    Shake,
+    TestProvider,
+    TestProvider
   ]
 })
 export class AppModule {}
