@@ -13,8 +13,8 @@ export interface Result {
   title: string;
   overview:string;
   poster_path: string;
-  backdrops_path: string;
-  //id: integer;  //?? integer n'est pas accepté
+  backdrop_path: string;
+  id: number;
   release_date: string;
   vote_average:number;
   original_title: string;

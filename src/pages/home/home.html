@@ -1,18 +1,19 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Vincent's Movie Searcher
+
+      Movie Searcher
     </ion-title>
   </ion-navbar>
   <ion-searchbar (ionInput)="getFilms($event)"></ion-searchbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class = "background">
   <ion-list>
     <ion-item *ngIf="!(films | async)?.length">Aucun résultat</ion-item>
     <button ion-item *ngFor="let item of films | async" [navPush]="pushPage" [navParams]="item">
       <ion-thumbnail item-start>
-        <img [src]="'https://image.tmdb.org/t/p/w640/'+item.poster_path">
+        <img [src]="'https://image.tmdb.org/t/p/w92/'+item.poster_path">
       </ion-thumbnail>
       <h2>{{item.title}}</h2>
       <h3>{{item.backdrops_path}} • {{item.release_date | date: 'longDate'}}</h3>

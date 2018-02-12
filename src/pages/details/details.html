@@ -7,15 +7,15 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>details</ion-title>
+    <ion-title>{{item.title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="background2">
   <div style="text-align:center;">
-  <img [src]="'https://image.tmdb.org/t/p/w640/'+item.poster_path"><br>
+  <img [src]="'https://image.tmdb.org/t/p/w500/'+item.poster_path"><br>
   <h1>{{item.title}}</h1>
   <h4>({{item.original_title}}) • {{item.original_language}}</h4>
   •
@@ -23,6 +23,10 @@
   •
   <p>{{item.vote_average}}/10</p>
   •
-  <p>{{item.overview}}</p>
+  <p class = overview>{{item.overview}}</p>
+  <!-- <button ion-button (click)= "lien()">Page</button> -->
+  <button ion-button full color ="dark">Page TMDB</button>
+  <img [src]= "'https://image.tmdb.org/t/p/w780/'+item.backdrop_path">
+
   </div>
 </ion-content>
